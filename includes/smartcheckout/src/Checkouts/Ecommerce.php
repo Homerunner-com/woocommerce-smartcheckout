@@ -22,7 +22,7 @@ class Ecommerce
         // Read products and instantiate products
         $this->filtering = Filtering::getInstance();
 
-        // CoolRunner authentication
+        // HomeRunner authentication
         $this->shop_token = $shop_token;
     }
 

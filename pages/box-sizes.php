@@ -54,11 +54,11 @@ if ( empty( $sizes ) ) {
 
 ?>
 <style>
-    #coolrunner-box-sizes-table tbody tr:first-child [data-up] {
+    #homerunner-box-sizes-table tbody tr:first-child [data-up] {
         visibility : hidden;
     }
 
-    #coolrunner-box-sizes-table tbody tr:last-child [data-down] {
+    #homerunner-box-sizes-table tbody tr:last-child [data-down] {
         visibility : hidden;
     }
 </style>
@@ -70,7 +70,7 @@ if ( empty( $sizes ) ) {
     </div>
     <div class="csc-box-content">
     <form action="" method="post">
-        <table id="coolrunner-box-sizes-table">
+        <table id="homerunner-box-sizes-table">
             <thead>
             <tr>
                 <th><?php echo __( 'Title', 'csc_textdomain' ) ?></th>
@@ -119,7 +119,7 @@ if ( empty( $sizes ) ) {
             <tfoot>
             <tr>
                 <td colspan="100" class="text-right">
-                    <button id="coolrunner-add-row" type="button" class="button csc-nonprim"><?php echo __( 'Add row', 'csc_textdomain' ) ?> +</button>
+                    <button id="homerunner-add-row" type="button" class="button csc-nonprim"><?php echo __( 'Add row', 'csc_textdomain' ) ?> +</button>
                     <button name="save" value="1" type="submit" class="button button-primary csc">
                         <?php echo __( 'Save', 'csc_textdomain' ) ?>
                     </button>
@@ -129,15 +129,15 @@ if ( empty( $sizes ) ) {
         </table>
         <script>
             jQuery(function ($) {
-                let tmpl = $('#coolrunner-row-template').html(),
+                let tmpl = $('#homerunner-row-template').html(),
                     index = <?php echo isset( $i ) ? $i + 1 : 0 ?> +1;
 
-                $('#coolrunner-add-row').on('click', function () {
-                    $('#coolrunner-box-sizes-table tbody').append($(tmpl.split('{i}').join(index)));
+                $('#homerunner-add-row').on('click', function () {
+                    $('#homerunner-box-sizes-table tbody').append($(tmpl.split('{i}').join(index)));
                     index++;
                 });
 
-                $('body').on('click', '#coolrunner-box-sizes-table button', function () {
+                $('body').on('click', '#homerunner-box-sizes-table button', function () {
                     let _ = $(this),
                         parent = _.parents('tr');
                     if (_.is('[data-up]')) {
@@ -145,7 +145,7 @@ if ( empty( $sizes ) ) {
                     } else if (_.is('[data-down]')) {
                         parent.insertAfter(parent.next())
                     } else if (_.is('[data-delete]')) {
-                        if (confirm('<?php echo __( 'Do you want to remove this box size?', 'coolrunner-shipping-plugin' ) ?>')) {
+                        if (confirm('<?php echo __( 'Do you want to remove this box size?', 'homerunner-shipping-plugin' ) ?>')) {
                             parent.remove();
                         }
                     }
@@ -154,7 +154,7 @@ if ( empty( $sizes ) ) {
         </script>
     </form>
 
-    <template id="coolrunner-row-template">
+    <template id="homerunner-row-template">
         <tr>
             <td>
                 <input type="text" name="box-sizes[{i}][name]" placeholder="Box title" value="">

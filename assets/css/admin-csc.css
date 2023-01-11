@@ -144,7 +144,7 @@
     padding: 10px;
 }
 
-table#coolrunner-box-sizes-table input[type="text"], table#coolrunner-box-sizes-table input[type="number"] {
+table#homerunner-box-sizes-table input[type="text"], table#homerunner-box-sizes-table input[type="number"] {
     border: 1px solid #a7a7a7;
     border-radius: 3px;
     font-size: 13px;
@@ -359,12 +359,12 @@ select#csc_warehouse, select#csc_pcn_auto {
     color: #007cba;
 }
 
-mark.order-status.status-completed.coolrunner {
+mark.order-status.status-completed.homerunner {
     background: #157efb;
     color: white;
 }
 
-mark.order-status.on-hold.coolrunner {
+mark.order-status.on-hold.homerunner {
     background: #e5e5e5;
     color: #777;
 }

@@ -47,11 +47,11 @@ class API
         // Handle if the customer got own warehouse or PCN
         if($warehouse == "normal") {
             // Define API properties
-            $endpoint = "https://api.coolrunner.dk/v3/shipments";
+            $endpoint = "https://api.homerunner.com/v3/shipments";
             $type = "POST";
         } elseif ($warehouse == "pcn") {
             // Define API properties
-            $endpoint = "https://api.coolrunner.dk/pcn/order/create";
+            $endpoint = "https://api.homerunner.com/pcn/order/create";
             $type = "POST";
         }
 
@@ -62,7 +62,7 @@ class API
     public function validate_address($data)
     {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/shipments/address/validate";
+        $endpoint = "https://api.homerunner.com/v3/shipments/address/validate";
         $type = "POST";
 
         $response = $this->curl($endpoint, $type, $data);
@@ -72,7 +72,7 @@ class API
     public function get_shipment($package_number)
     {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/shipments/".$package_number;
+        $endpoint = "https://api.homerunner.com/v3/shipments/".$package_number;
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);
@@ -82,7 +82,7 @@ class API
     public function get_label($package_number)
     {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/shipments/".$package_number."/label";
+        $endpoint = "https://api.homerunner.com/v3/shipments/".$package_number."/label";
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);
@@ -92,7 +92,7 @@ class API
     public function get_tracking($package_number)
     {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/shipments/".$package_number."/tracking";
+        $endpoint = "https://api.homerunner.com/v3/shipments/".$package_number."/tracking";
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);
@@ -110,7 +110,7 @@ class API
             "limit" => $limit
         );
 
-        $endpoint = "https://api.coolrunner.dk/v3/servicepoints/".$carrier . '?' . http_build_query($endpoint_data);
+        $endpoint = "https://api.homerunner.com/v3/servicepoints/".$carrier . '?' . http_build_query($endpoint_data);
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);
@@ -120,7 +120,7 @@ class API
     public function get_servicepoint_by_id($carrier, $servicepoint_id)
     {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/servicepoints/".$carrier."/".$servicepoint_id;
+        $endpoint = "https://api.homerunner.com/v3/servicepoints/".$carrier."/".$servicepoint_id;
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);
@@ -129,7 +129,7 @@ class API
 
     public function get_products($country) {
         // Define API properties
-        $endpoint = "https://api.coolrunner.dk/v3/products/" . $country;
+        $endpoint = "https://api.homerunner.com/v3/products/" . $country;
         $type = "GET";
 
         $response = $this->curl($endpoint, $type);

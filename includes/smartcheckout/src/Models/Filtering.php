@@ -19,7 +19,7 @@ class Filtering
     {
         $curl = curl_init();
 
-        $endpoint = "https://api.smartcheckout.coolrunner.dk?shop_token=" . $shop_token;
+        $endpoint = "https://api.smartcheckout.homerunner.com?shop_token=" . $shop_token;
 
         curl_setopt_array($curl, array(
             CURLOPT_URL => $endpoint,
