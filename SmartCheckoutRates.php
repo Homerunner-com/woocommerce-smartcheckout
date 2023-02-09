@@ -68,6 +68,12 @@ class SmartCheckoutRates extends WC_Shipping_Method {
 
         foreach ($cart_data as $cart_product) {
             $_product =  wc_get_product( $cart_product['data']->get_id());
+            $terms = get_the_terms ( $_product->get_id(), 'product_cat' );
+
+            foreach ($terms as $term) {
+                $categories[] = $term->term_id;
+            }
+            
             $cart_items[] = array(
                 'item_name' => $_product->get_name(),
                 'item_sku' => $_product->get_sku(),
@@ -99,7 +105,8 @@ class SmartCheckoutRates extends WC_Shipping_Method {
             'cart_day' => $cart_day,
             'cart_currency' => get_woocommerce_currency_symbol(),
             'cart_subtotal' => $cart_subtotal,
-            'cart_items' => $cart_items
+            'cart_items' => $cart_items,
+            'categories' => implode(',', $categories),r
         );
 
         // Check if customer data is set
