@@ -106,7 +106,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
             'cart_currency' => get_woocommerce_currency_symbol(),
             'cart_subtotal' => $cart_subtotal,
             'cart_items' => $cart_items,
-            'categories' => implode(',', $categories),r
+            'categories' => implode(',', $categories),
         );
 
         // Check if customer data is set
