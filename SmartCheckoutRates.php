@@ -83,6 +83,8 @@ class SmartCheckoutRates extends WC_Shipping_Method {
                 'item_weight' => $_product->get_weight()
             );
 
+            $cart_items = apply_filters( 'homerunner_cart_items', $cart_items, $cart_product, $_product, $terms );
+
             $cart_weight += (float) $_product->get_weight()*((int) $cart_product['quantity']);
             $cart_subtotal += $cart_product['line_subtotal'];
         }
@@ -138,6 +140,8 @@ class SmartCheckoutRates extends WC_Shipping_Method {
                 }
             }
         }
+
+        $shipment_data = apply_filters( 'homerunner_shipment_data', $shipment_data );
 
         error_log(print_r($shipment_data, 1));
 
