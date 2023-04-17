@@ -65,6 +65,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
         $cart_items = array();
         $cart_weight = 0;
         $cart_subtotal = 0;
+        $categories = [];
 
         foreach ($cart_data as $cart_product) {
             $_product =  wc_get_product( $cart_product['data']->get_id());
