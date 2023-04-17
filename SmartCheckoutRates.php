@@ -143,7 +143,9 @@ class SmartCheckoutRates extends WC_Shipping_Method {
 
         $shipment_data = apply_filters( 'homerunner_shipment_data', $shipment_data );
 
-        error_log(print_r($shipment_data, 1));
+        if (wp_get_environment_type() != 'production' ) {
+            error_log(print_r($shipment_data, 1));
+        }
 
         $products = $this->validata_data($shipment_data);
         foreach ($products as $product) {
