@@ -146,6 +146,13 @@ class SmartCheckoutRates extends WC_Shipping_Method {
         error_log(print_r($shipment_data, 1));
 
         $products = $this->validata_data($shipment_data);
+
+        if (apply_filters('homerunner_order_by_priority', false)) {
+            usort($products, function ($a, $b) {
+                return ($a->conditions[0]->priority > $b->conditions[0]->priority);
+            });
+        }
+
         foreach ($products as $product) {
             $rate = array(
                 'id' => $product->carrier.'_'.$product->carrier_product.'_'.$product->carrier_service,
