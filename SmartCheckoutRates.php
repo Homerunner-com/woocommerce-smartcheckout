@@ -69,10 +69,19 @@ class SmartCheckoutRates extends WC_Shipping_Method {
 
         foreach ($cart_data as $cart_product) {
             $_product =  wc_get_product( $cart_product['data']->get_id());
-            $terms = get_the_terms ( $_product->get_id(), 'product_cat' );
 
-            foreach ($terms as $term) {
-                $categories[] = $term->term_id;
+            if ($_product->get_type() == 'variation') {
+                $product_id = wc_get_product( $_product->get_parent_id() )->get_id();
+            } else {
+                $product_id = $_product->get_id();
+            }
+
+            $terms = get_the_terms( $product_id, 'product_cat' );
+
+            if ($terms) {
+                foreach ($terms as $term) {
+                    $categories[] = $term->term_id;
+                }
             }
             
             $cart_items[] = array(
