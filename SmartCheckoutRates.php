@@ -69,6 +69,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
 
         foreach ($cart_data as $cart_product) {
             $_product =  wc_get_product( $cart_product['data']->get_id());
+            $terms = get_the_terms( $_product->get_id(), 'product_cat' );
 
             if ($_product->get_type() == 'variation') {
                 $product_id = wc_get_product( $_product->get_parent_id() )->get_id();
@@ -161,7 +162,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
 
         if (apply_filters('homerunner_order_by_priority', false)) {
             usort($products, function ($a, $b) {
-                return ($a->conditions[0]->priority > $b->conditions[0]->priority);
+                return ($a->conditions[0]->priority > $b->conditions[0]->priority) ? 1 : -1;
             });
         }
 
