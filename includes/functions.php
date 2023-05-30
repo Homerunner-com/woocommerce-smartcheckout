@@ -388,8 +388,8 @@ function csc_create_shipment($order_id = null, $size = null) {
 
                 if(!empty(get_post_meta($item['product_id'], '_homerunner_origin_country', true))) {
 
-                    $tariff = get_post_meta($item['product_id'], '_homerunner_origin_country', true);
-                    $origin_country = get_post_meta($item['product_id'], '_homerunner_hs_code', true);
+                    $tariff = get_post_meta($item['product_id'], '_homerunner_hs_code', true);
+                    $origin_country = get_post_meta($item['product_id'], '_homerunner_origin_country', true);
 
                     $productArray['customs'] = array(
                         "description" => $prod->get_product()->get_name(),
@@ -445,8 +445,8 @@ function csc_create_shipment($order_id = null, $size = null) {
 
                 if(!empty(get_post_meta($item['product_id'], '_homerunner_origin_country', true))) {
 
-                    $tariff = get_post_meta($item['product_id'], '_homerunner_origin_country', true);
-                    $origin_country = get_post_meta($item['product_id'], '_homerunner_hs_code', true);
+                    $tariff = get_post_meta($item['product_id'], '_homerunner_hs_code', true);
+                    $origin_country = get_post_meta($item['product_id'], '_homerunner_origin_country', true);
 
                     $productArray['customs'] = array(
                         "description" => $prod->get_product()->get_name(),
