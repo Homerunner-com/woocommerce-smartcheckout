@@ -112,7 +112,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
             'receiver_email' => WC()->checkout->get_value('billing_email'),
             'receiver_company' => (WC()->checkout->get_value('shipping_company') != '') ? WC()->checkout->get_value('shipping_company') : '',
             'cart_amount' => $woocommerce->cart->cart_contents_count,
-            'cart_weight' => $cart_weight,
+            'cart_weight' => $woocommerce->cart->get_cart_subtotal(),
             'cart_date' => $cart_date,
             'cart_time' => $cart_time,
             'cart_day' => $cart_day,
