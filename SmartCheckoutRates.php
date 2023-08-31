@@ -117,7 +117,7 @@ class SmartCheckoutRates extends WC_Shipping_Method {
             'cart_time' => $cart_time,
             'cart_day' => $cart_day,
             'cart_currency' => get_woocommerce_currency_symbol(),
-            'cart_subtotal' => $woocommerce->cart->get_cart_subtotal(),
+            'cart_subtotal' => $woocommerce->cart->subtotal,
             'cart_items' => $cart_items,
             'categories' => implode(',', $categories),
         );
